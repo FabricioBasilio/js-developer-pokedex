@@ -36,17 +36,22 @@
             </button>
         </div>
     </section>
-    <div id="fade"></div>
-    <div id="modal_details">
+    <div id="fade" class="hidden"></div>
+    <div id="modal_details" class="hidden">
         <h3>Nome Pokemon</h3>
         <p>Detalhes</p>
-        <button>Voltar</button>
+        <button id="botaoFecharModalDetails">Voltar</button>
     </div>
 
     <!-- Nosso JS -->
+
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
+
+    <!-- JS para o model e para os dados de detalhes -->
+
+    <script src="./assets/js/js-modal/controle-modal.js"></script>
 </body>
 
 </html>

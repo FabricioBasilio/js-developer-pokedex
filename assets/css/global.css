@@ -54,6 +54,12 @@ div#modal_details {
     padding: 1.5rem;
 }
 
+/* de inicio os dois ficarão com display none com a classe hidden  */
+
+div#fade.hidden, div#modal_details.hidden {
+    display: none;
+}
+
 /* responsividade */
 
 @media screen and (min-width: 992px) {
