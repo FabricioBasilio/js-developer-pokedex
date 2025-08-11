@@ -7,7 +7,7 @@ fade.addEventListener("click", fecharModalDetails);
 
 // selecionando os elementos depois de um tempo de 2 segundos
 setTimeout(() => {
-  const itensLista = document.querySelectorAll("li.pokemon");
+  const itensLista = document.querySelectorAll("li.pokemon span.name");
 
   itensLista.forEach((itemLista) => {
     itemLista.addEventListener("click", abrirModalDetails);
@@ -16,9 +16,13 @@ setTimeout(() => {
 }, 2000);
 
 
-function abrirModalDetails() {
+function abrirModalDetails(e) {
   modal.classList.remove("hidden");
   fade.classList.remove("hidden");
+
+  const nome = e.target.innerText;
+  buscarInformacoes(nome)
+
 } 
 
 function fecharModalDetails() {

@@ -49,11 +49,11 @@ loadMoreButton.addEventListener("click", () => {
 
   // Adicionar os eventos aos novos itens da lista
   setTimeout(() => {
-    const itensLista = document.querySelectorAll("li.pokemon");
+    const itensLista = document.querySelectorAll("li.pokemon span.name");
 
     itensLista.forEach((itemLista) => {
       itemLista.addEventListener("click", abrirModalDetails);
     });
   }, 2000);
-  
+
 });
