@@ -14,6 +14,19 @@ body {
     background-color: #fff;
 }
 
+.content ol li, .pagination button {
+    cursor: pointer;
+}
+
+.content ol li:hover {
+    transform: scale(1.05);
+}
+
+.pagination button:hover {
+    transform: scale(1.1);
+}
+
+
 @media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
