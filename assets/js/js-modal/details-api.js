@@ -23,17 +23,29 @@ function buscarInformacoes(nome) {
     .then((response) => {
       pokemonInformacoes.imagem =
         response.sprites.other.dream_world.front_default;
-      pokemonInformacoes.nome = response.name;
-      pokemonInformacoes.altura = response.height;
-      pokemonInformacoes.peso = response.weight;
+      pokemonInformacoes.nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+      pokemonInformacoes.altura = response.height / 10;
+      pokemonInformacoes.peso = response.weight / 10;
       pokemonInformacoes.habilidades = response.abilities.map(
         (i) => i.ability.name
       );
+      console.log(response);
     });
 
-    montarModal();
+  setTimeout(() => montarModal(), 500);
 }
 
 function montarModal() {
-    alert("montarei o " + modal + " de " + pokemonInformacoes)
+  modalImage.setAttribute("src", pokemonInformacoes.imagem);
+  modalImage.setAttribute("alt", pokemonInformacoes.nome);
+
+  modalName.innerText = pokemonInformacoes.nome;
+
+  if (pokemonInformacoes.altura < 1)
+    modalAltura.innerText = `${pokemonInformacoes.altura} cm`;
+  else modalAltura.innerText = `${pokemonInformacoes.altura} m`;
+
+  modalWeight.innerText = `${pokemonInformacoes.peso}kg`;
+
+  modalHabilidades.innerText = pokemonInformacoes.habilidades.join(", ");
 }

@@ -54,6 +54,10 @@ div#modal_details {
     padding: 1.5rem;
 }
 
+div#modal_details img {
+    width: 50%
+}
+
 /* de inicio os dois ficarão com display none com a classe hidden  */
 
 div#fade.hidden, div#modal_details.hidden {
