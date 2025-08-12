@@ -1,5 +1,5 @@
 // informações para a requisição
-// - especie
+// - imagem
 // - altura
 // - peso
 // - habilidades
@@ -8,6 +8,32 @@
 
 // url `https://pokeapi.co/api/v2/pokemon (nome)`
 
+let pokemonInformacoes = {
+  imagem: "",
+  nome: "",
+  altura: "",
+  peso: "",
+  habilidades: "",
+};
+
 function buscarInformacoes(nome) {
-    alert("buscar informações sobre o " + nome)
+  const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((response) => {
+      pokemonInformacoes.imagem =
+        response.sprites.other.dream_world.front_default;
+      pokemonInformacoes.nome = response.name;
+      pokemonInformacoes.altura = response.height;
+      pokemonInformacoes.peso = response.weight;
+      pokemonInformacoes.habilidades = response.abilities.map(
+        (i) => i.ability.name
+      );
+    });
+
+    montarModal();
+}
+
+function montarModal() {
+    alert("montarei o " + modal + " de " + pokemonInformacoes)
 }

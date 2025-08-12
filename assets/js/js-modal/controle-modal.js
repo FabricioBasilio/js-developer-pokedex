@@ -20,7 +20,8 @@ function abrirModalDetails(e) {
   modal.classList.remove("hidden");
   fade.classList.remove("hidden");
 
-  const nome = e.target.innerText;
+  const nome = e.target.innerText.toLowerCase();
+  alert(nome)
   buscarInformacoes(nome)
 
 } 
