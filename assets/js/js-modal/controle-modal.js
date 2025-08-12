@@ -22,7 +22,6 @@ modalHabilidades.innerText = "Carregando...";
 botaoFecharModalDetails.addEventListener("click", fecharModalDetails);
 fade.addEventListener("click", fecharModalDetails);
 
-// selecionando os elementos depois de um tempo de 2 segundos
 setTimeout(() => {
   const itensLista = document.querySelectorAll("li.pokemon span.name");
 
@@ -55,4 +54,21 @@ function fecharModalDetails() {
   modalWeight.innerText = "Carregando...";
 
   modalHabilidades.innerText = "Carregando...";
+}
+
+function montarModal() {
+  modalHeader.classList.add(pokemonInformacoes.tipo);
+
+  modalImage.setAttribute("src", pokemonInformacoes.imagem);
+  modalImage.setAttribute("alt", pokemonInformacoes.nome);
+
+  modalName.innerText = pokemonInformacoes.nome;
+
+  if (pokemonInformacoes.altura < 1)
+    modalAltura.innerText = `${pokemonInformacoes.altura} cm`;
+  else modalAltura.innerText = `${pokemonInformacoes.altura} m`;
+
+  modalWeight.innerText = `${pokemonInformacoes.peso} kg`;
+
+  modalHabilidades.innerText = pokemonInformacoes.habilidades.join(", ");
 }
