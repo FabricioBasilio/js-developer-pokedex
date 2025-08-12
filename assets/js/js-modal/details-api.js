@@ -14,6 +14,7 @@ let pokemonInformacoes = {
   altura: "",
   peso: "",
   habilidades: "",
+  tipo: "",
 };
 
 function buscarInformacoes(nome) {
@@ -29,13 +30,16 @@ function buscarInformacoes(nome) {
       pokemonInformacoes.habilidades = response.abilities.map(
         (i) => i.ability.name
       );
-      console.log(response);
+      pokemonInformacoes.tipo = response.types[0].type.name;
+      console.log(pokemonInformacoes.tipo);
     });
 
   setTimeout(() => montarModal(), 500);
 }
 
 function montarModal() {
+  modalHeader.classList.add(pokemonInformacoes.tipo);
+
   modalImage.setAttribute("src", pokemonInformacoes.imagem);
   modalImage.setAttribute("alt", pokemonInformacoes.nome);
 
@@ -45,7 +49,7 @@ function montarModal() {
     modalAltura.innerText = `${pokemonInformacoes.altura} cm`;
   else modalAltura.innerText = `${pokemonInformacoes.altura} m`;
 
-  modalWeight.innerText = `${pokemonInformacoes.peso}kg`;
+  modalWeight.innerText = `${pokemonInformacoes.peso} kg`;
 
   modalHabilidades.innerText = pokemonInformacoes.habilidades.join(", ");
 }

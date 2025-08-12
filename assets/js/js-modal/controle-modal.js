@@ -1,4 +1,5 @@
 const modal = document.getElementById("modal_details");
+const modalHeader = document.querySelector(".modal_details__header");
 const modalImage = document.getElementById("modal_details__image");
 const modalName = document.getElementById("modal_details__name");
 const modalAltura = document.getElementById("modal_details__height");
@@ -41,6 +42,8 @@ function abrirModalDetails(e) {
 function fecharModalDetails() {
   modal.classList.add("hidden");
   fade.classList.add("hidden");
+
+  modalHeader.classList.remove(pokemonInformacoes.tipo);
 
   modalImage.setAttribute("src", "");
   modalImage.setAttribute("alt", "");
